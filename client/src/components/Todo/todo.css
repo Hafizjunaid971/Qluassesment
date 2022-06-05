@@ -81,3 +81,36 @@ input{
 i{
     cursor: pointer;
 }
+
+
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #ffa32b;
+    color: #2b2eff;
+    cursor: pointer;
+  }
+  
+  .paginationBttns a:hover {
+    color: white;
+    background-color: burlywood;
+  }
+  
+  .paginationActive a {
+    color: white;
+    background-color: #ff8a2b;
+  }
+  
+  .paginationDisabled a {
+    color: #efefef;
+    background-color: grey;
+  }

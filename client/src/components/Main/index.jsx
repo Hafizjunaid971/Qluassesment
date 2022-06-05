@@ -2,6 +2,8 @@ import styles from "./styles.module.css";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import Item from "../Todo/item";
+import ReactPaginate from "react-paginate";
+
 import '../Todo/todo.css';
 const Main = () => {
 	const handleLogout = () => {
@@ -51,7 +53,20 @@ const Main = () => {
 	}
   
 
+// pagination
+const [pageNumber, setPageNumber] = useState(0);
 
+const usersPerPage = 8;
+const pagesVisited = pageNumber * usersPerPage;
+
+
+const pageCount = Math.ceil(todo.length / usersPerPage);
+
+const changePage = ({ selected }) => {
+  setPageNumber(selected);
+};
+
+// 
 	
 
 	return (
@@ -79,7 +94,12 @@ const Main = () => {
         </div>
 
         <div className="list">
-          {todo.map(item => <Item
+
+		{/* const displayUsers = users
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((user) => { */}
+          {todo.slice(pagesVisited,pagesVisited +usersPerPage).map(item => <Item
+		  
             key={item._id}
             text={item.text}
             remove={() => deleteTodo(item._id)}
@@ -87,6 +107,21 @@ const Main = () => {
         </div>
 
       </div>
+    </div>
+
+<br/>
+	<div className="App">
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
     </div>
 		</>
 

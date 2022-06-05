@@ -56,7 +56,7 @@ const Main = () => {
 // pagination
 const [pageNumber, setPageNumber] = useState(0);
 
-const usersPerPage = 8;
+const usersPerPage = 10;
 const pagesVisited = pageNumber * usersPerPage;
 
 
@@ -109,7 +109,7 @@ const changePage = ({ selected }) => {
       </div>
     </div>
 
-<br/>
+
 	<div className="App">
       <ReactPaginate
         previousLabel={"Previous"}

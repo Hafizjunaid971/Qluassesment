@@ -9,7 +9,7 @@ module.exports.saveToDo = (req, res) => {
     const { text } = req.body;
 
     ToDoModel
-        .create({ text })
+        .create({ textz })
         .then(() => res.set(201).send("Added Successfully..."))
         .catch((err) => console.log(err));
 }
